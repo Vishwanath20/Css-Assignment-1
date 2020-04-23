@@ -1,0 +1,37 @@
+<div id="container">
+    <div class="thumbnails">
+        <figure class="thumbnail">
+            <a class="description-link" id="default-description" href="#" data-description="DESCRIPTION 1 HERE!">
+                <img src="#">
+                
+            </a>
+        </figure>
+        <figure class="thumbnail">
+            <a class="description-link" href="#" data-description="DESCRIPTION 2 HERE!">
+                <img src="#">
+            </a>
+        </figure>
+        <figure class="thumbnail">
+            <a class="description-link" href="#" data-description="DESCRIPTION 3 HERE!">
+                <img src="#">
+            </a>
+        </figure>
+    </div>
+</div>
+
+<div id="description">
+    data-short-description to go here upon clicking link.
+</div>
+
+<script src="https://code.jquery.com/jquery-latest.js"></script> 
+<script>
+    $(document).ready(function() {
+        // fill in default description on page load
+        $('.description').html($('#default-description').attr('data-description'));
+
+        // change description when a link is clicked
+        $('.description-link').click(function() {
+            $('#description').html($(this).attr('data-description'));
+        });
+    });
+</script>

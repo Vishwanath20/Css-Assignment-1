@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+    <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->
+
+    <style>
+        .selected {
+            border: 4px solid black;
+        }
+    </style>
+	
+</head>
+
+<body>
+    <div class="container">
+	<div class="row">
+	<div class="col-md-6">
+                <img src="" id="imgID2" height="50px" width="50px">
+                <a id = "pName"> </a>
+                <p id = "pDesc"> </p>
+                <p id = "pPrice"> </p>
+            </div>
+	</div>
+        <div class="row">
+            <a  class="description-link col-md-5 optionsecoptions" data-description="anme2,desc2,price2">
+                <img src="./assets/img/img5.jpg" img-description="./assets/img/img5.jpg" id="imgID" height="100px" width="100px">
+                <a class="pName" name-description="DESCRIPTION 2 HERE!">Name: ProductName</a>
+                <p class="pDesc" desc-description="DESCRIPTION 2 HERE!">Desc: ProductDescription</p>
+                <p class="pPrice" price-description="DESCRIPTION 2 HERE!">Price: $50.00</p>
+            </a>
+			<a class="description-link col-md-5 optionsecoptions" data-description="anme3,desc3,price3">
+                <img src="./assets/img/img6.jpg" img-description="./assets/img/img6.jpg" id="imgID" height="100px" width="100px">
+                <a class="pName" name-description="DESCRIPTION 3 HERE!">Name: ProductName</a>
+                <p class="pDesc" desc-description="DESCRIPTION 3 HERE!">Desc: ProductDescription</p>
+                <p class="pPrice" price-description="DESCRIPTION 3 HERE!">Price: $50.00</p>
+            </a>
+            
+        </div>
+		
+    </div>
+	<script src="https://code.jquery.com/jquery-latest.js"></script> 
+    <script>
+	$(document).ready(function() {
+        // fill in default description on page load
+        //$('.description').html($('#default-description').attr('data-description'));
+
+        // change description when a link is clicked
+        $('.description-link').click(function() {
+        //alert("ok");
+        $(".description-link").css("border", "2px solid black");
+
+            $('#pName').html($(this).attr('data-description'));
+
+            var value = $('#pName').html($(this).attr('data-description'));
+            var array = (value.text()).split(',');
+            for(var i=0; i<array.length; i++){
+                console.log(i +":" +array[i]);
+            }
+
+            alert(value.text());
+
+        });
+    });
+        function changeDivStyle() {
+            var selectedDiv = "";
+            var imgUrl = "";
+            var textData = "";
+            var pName = "";
+            var pDesc = "";
+            var pPrice = "";
+            var x = document.getElementsByClassName('optionsecoptions');
+            console.log("X length is:::" + x.length);
+            for (var i = 0; i < x.length; i++) {
+                x[i].addEventListener("click", function () {
+                    var selectedEl = document.querySelector(".selected");
+                    if (selectedEl) {
+                       selectedEl.classList.remove("selected");
+                    }
+                    this.classList.add("selected");
+                }, false);;
+           
+
+                // x[i].addEventListener('click', function () {
+                //     var selectedEl = document.querySelector(".selected");
+                //     imgUrl = document.getElementById("imgID").src;
+                //     console.log("Image URL is:: " + imgUrl);
+                //     pName = document.querySelector('.pName').textContent;
+                //     pDesc = document.querySelector('.pDesc').textContent;
+                //     pPrice = document.querySelector('.pPrice').textContent;
+                //     // console.log("pName::: "+pName);
+                //     if (selectedEl){
+                //         //alert(selectedEl.innerText);
+                //         console.log("Data is:: "+selectedEl.innerText);
+                //         textData = selectedEl.innerText;
+                //         console.log("textData is:: "+textData);
+                //     }
+                //      else{
+                //         alert('please choose an option');
+                //      }      
+                //      changeImg(imgUrl, pName, pDesc, pPrice)               
+                // })
+        
+
+            } 
+            
+            
+        }
+
+        function  changeImg(imgUrl, pName, pDesc, pPrice) {
+            console.log("===Inside the changeImg(imgUrl)++====");
+            document.getElementById("imgID2").src=imgUrl;
+            // console.log("inside the changeImg()-- textData is:: "+textData);
+            // console.log("inside the changeImg()-- textData length is:: "+textData.length);
+            // document.getElementById("pID").innerHTML = textData;
+            document.getElementById("pName").innerHTML = pName;
+            document.getElementById("pDesc").innerHTML = pDesc;
+            document.getElementById("pPrice").innerHTML = pPrice;
+        }
+    </script>
+</body>
+
+</html>
