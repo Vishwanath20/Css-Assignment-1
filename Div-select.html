@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+        // function myFun(divId, tickMark, num) {
+            
+        //     const checkId = divId;
+        //     if(checkId == divId){
+        //         console.log("Insiede ifff");
+        //         document.getElementById(''+divId).style.border = "4px solid black";
+        //         document.getElementById(''+tickMark).style.display = "block";
+        //     }
+        //     else{
+        //         console.log("Insiede else");
+        //         document.getElementById(''+divId).style.border = "none";
+        //         document.getElementById(''+tickMark).style.display = "none";
+        //     }    
+        // }
+
+
+
+
+    </script>
+    <style>
+      
+        .tickMarkClass{
+            display: none;
+        }
+
+        .selected{
+            border: 4px solid green;
+            
+        }
+
+        .tickMark{
+            display: block;
+            position: relative;
+            text-align: right;
+            content: "\2713";
+            background-color: hotpink;
+        }
+
+      
+
+    </style>
+</head>
+
+<body>    
+ 
+
+    <a href="javascript:changeDivStyle();">
+        <div id="divId1" class="optionsecoptions" style="width: 200px; height: 200px; background-color: aqua;"> 
+           <span class = "tickMarkClass">&check;</span>
+         
+
+        </div>
+  </a>
+<br>
+
+<a href="javascript:changeDivStyle();">
+    <div id="divId2" class="optionsecoptions" style="width: 200px; height: 200px; background-color: aqua;"> 
+        <span class = "tickMarkClass">&check;</span>
+    </div>
+</a>
+
+  <!-- <a href="javascript:myFun('divId2', 'tickMark2', 2);">
+    <div id="divId2" style="width: 200px; height: 200px; background-color: aqua;"> 
+       
+        <span id = "tickMark2">&check;</span>
+    </div>
+</a> -->
+
+<script>
+
+    function changeDivStyle(){
+        
+    var selectedDiv = "";
+    var x = document.getElementsByClassName('optionsecoptions')
+    console.log("X :::"+x);
+    for (var i = 0; i < x.length; i++) {
+        x[i].addEventListener("click", function () {
+
+            var selectedEl = document.querySelector(".selected");
+             var selectedE2 = document.querySelector(" .tickMark");
+            if (selectedEl && selectedE2 ) {
+                selectedEl.classList.remove("selected");
+                 selectedEl.classList.remove("tickMark");
+            }
+            this.classList.add("selected");
+            this.classList.add("tickMark");
+           }, false);;
+    }
+    // var y = document.getElementsByClassName('tickMarkClass')
+    // for (var i = 0; i < x.length; i++) {
+    //     y[i].addEventListener("click", function () {
+    //     var selectedE2 = document.querySelector(" .tickMark");
+    //         if (selectedE2) {
+               
+    //             selectedEl.classList.remove("tickMark");
+    //         }
+           
+    //         this.classList.add("tickMark");
+    //        }, false);;
+    // }
+
+    }
+</script>
+
+
+</body>
+</html>

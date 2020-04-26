@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        .selected {
+            border: 4px solid black;
+        }
+
+        #divSelected {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 optionsecoptions" onclick="changeDivStyle('1')">
+                <img src="./assets/img/img1.jpg" id="imgID_1" height="200px" , width="200px" class="imgClass">
+                <p id="pName_1">Name: ProductName11</p>
+                <p id="pDesc_1">Desc: ProductDescription11</p>
+                <p id="pPrice_1">Price: $11.00</p>
+            </div>
+
+            <div class="col-md-3 optionsecoptions" onclick="changeDivStyle('2')">
+                <img src="./assets/img/img2.jpg" id="imgID_2" height="200px" , width="200px" class="imgClass">
+                <p id="pName_2">Name: ProductName22</p>
+                <p id="pDesc_2">Desc: ProductDescription22</p>
+                <p id="pPrice_2">Price: $22.00</p>
+            </div>
+
+            <div class="col-md-3 optionsecoptions" onclick="changeDivStyle('3')">
+                <img src="./assets/img/img3.jpg" id="imgID_3" height="200px" , width="200px" class="imgClass">
+                <p id="pName_3">Name: ProductName33</p>
+                <p id="pDesc_3">Desc: ProductDescription33</p>
+                <p id="pPrice_3">Price: $33.00</p>
+            </div>
+
+            <div class="col-md-3 " id="divSelected">
+                <img src="" id="imgID2" height="100px" , width="100px">
+                <p id="pName"> </p>
+                <p id="pDesc"> </p>
+                <p id="pPrice"> </p>
+            </div>
+        </div>
+    </div>
+    <script>
+        function changeDivStyle(ids) {
+            var selectedDiv = "";
+            var imgUrl = "";
+            var textData = "";
+            var pName = "";
+            var pDesc = "";
+            var pPrice = "";
+            var x = document.getElementsByClassName('optionsecoptions');
+            console.log("X length is:::" + x.length);
+            for (var i = 0; i < x.length; i++) {
+                x[i].addEventListener("click", function () {
+                    var selectedEl = document.querySelector(".selected");
+                    if (selectedEl) {
+                        selectedEl.classList.remove("selected");
+                    }
+                    this.classList.add("selected");
+                }, false);;
+
+
+                x[i].addEventListener('click', function () {
+                    var selectedEl = document.querySelector(".selected");
+
+                    imgUrl = document.getElementById("imgID_" + ids).src;
+                    pName = document.getElementById("pName_" + ids).textContent;
+                    pDesc = document.getElementById("pDesc_" + ids).textContent;
+                    pPrice = document.getElementById("pPrice_" + ids).textContent;
+                    console.log("Image URL is:: " + imgUrl);
+                    console.log(" pName isss:: " + pName);
+                    console.log(" Pdesccc isss:: " + pDesc);
+                    console.log(" ppricesss isss:: " + pPrice);
+                    if (selectedEl) {
+                        //alert(selectedEl.innerText);
+                        console.log("Data is:: " + selectedEl.innerText);
+                        textData = selectedEl.innerText;
+                        console.log("textData is:: " + textData);
+                    }
+                    else {
+                        alert('please choose an option');
+                    }
+                    changeImg(imgUrl, pName, pDesc, pPrice, ids)
+                })
+
+            }
+
+
+        }
+
+        function changeImg(imgUrl, pName, pDesc, pPrice, ids) {
+            document.getElementById("divSelected").style.display = "block";
+            console.log("===Inside the changeImg(imgUrl)++====");
+            document.getElementById("imgID2").src = imgUrl;
+            document.getElementById("pName").innerHTML = pName;
+            document.getElementById("pDesc").innerHTML = pDesc;
+            document.getElementById("pPrice").innerHTML = pPrice;
+        }
+    </script>
+</body>
+
+</html>

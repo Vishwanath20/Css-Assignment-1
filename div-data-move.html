@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> 
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> 
+
+    <style>
+        .selected {
+            border: 4px solid black;
+        }
+    </style>
+	
+</head>
+
+<body>
+    <div class="container">
+	
+        <div class="row">	
+            <div class="col-md-2">
+                <img src="" class="pcimg" height="50px" width="50px">
+                <a class = "pcName"> </a>
+                <p class = "pcDesc"> </p>
+                <p class = "pcPrice"> </p>
+            </div>		
+            <a  class="description-link col-md-4 optionsecoptions" data-description="0,anme11,desc11,price11,./assets/img/img5.jpg">
+                <img src="./assets/img/img5.jpg" img-description="./assets/img/img5.jpg" id="imgID" height="100px" width="100px" style="margin:0;padding:0;">
+				<a class="pName" name-description="DESCRIPTION 2 HERE!">Name: ProductName-1-1</a>
+                <p class="pDesc" desc-description="DESCRIPTION 2 HERE!">Desc: ProductDescription</p>
+                <p class="pPrice" price-description="DESCRIPTION 2 HERE!">Price: $50.00</p>
+            </a>
+			<a class="description-link col-md-4 optionsecoptions" data-description="0,anme12,desc12,price12,./assets/img/img6.jpg">
+                <img src="./assets/img/img6.jpg" img-description="./assets/img/img6.jpg" id="imgID" height="100px" width="100px" style="margin:0;padding:0;">
+				<a class="pName" name-description="DESCRIPTION 3 HERE!">Name: ProductName 1-2</a>
+                <p class="pDesc" desc-description="DESCRIPTION 3 HERE!">Desc: ProductDescription</p>
+                <p class="pPrice" price-description="DESCRIPTION 3 HERE!">Price: $50.00</p>
+            </a>            
+        </div>
+		<br>
+        <hr>
+        
+		<div class="row">	
+            <div class="col-md-2">
+                <img src="" class="pcimg" height="50px" width="50px">
+                <a class = "pcName"> </a>
+                <p class = "pcDesc"> </p>
+                <p class = "pcPrice"> </p>
+            </div>		
+
+            <a  class="description-link col-md-3 optionsecoptions" data-description="1,anme22,desc22,price22,./assets/img/img5.jpg">
+			<div class="row">
+			  <div class="col-sm-3">
+			  <img src="./assets/img/img5.jpg" img-description="./assets/img/img5.jpg" id="imgID" height="100px" width="100px" style="margin:0;padding:0;">
+			  </div>
+			  <div class="col-sm-3">
+			  <a class="pName" name-description="DESCRIPTION 2 HERE!">Name: ProductName 2-1</a>
+			  </div>
+			  <div class="col-sm-3">
+			  <p class="pDesc" desc-description="DESCRIPTION 2 HERE!">Desc: ProductDescription</p>
+			  </div>
+			  <div class="col-sm-3">
+			  <p class="pPrice" price-description="DESCRIPTION 2 HERE!">Price: $50.00</p>
+			  </div>
+			</div>
+                
+            </a>
+			<a  class="description-link col-md-3 optionsecoptions" data-description="1,anme23,desc23,price23,./assets/img/img6.jpg">
+			<div class="row">
+			  <div class="col-sm-3">
+			  <img src="./assets/img/img6.jpg" img-description="./assets/img/img6.jpg" id="imgID" height="100px" width="100px" style="margin:0;padding:0;background-color:red;">
+			  </div>
+			  <div class="col-sm-3">
+			  <a class="pName" name-description="DESCRIPTION 2 HERE!">Name: ProductName 2-2</a>
+			  </div>
+			  <div class="col-sm-3">
+			  <p class="pDesc" desc-description="DESCRIPTION 2 HERE!">Desc: ProductDescription</p>
+			  </div>
+			  <div class="col-sm-3">
+			  <p class="pPrice" price-description="DESCRIPTION 2 HERE!">Price: $50.00</p>
+			  </div>
+			</div>
+                
+            </a>          
+        </div>
+		
+    </div>
+	<!-- <script src="https://code.jquery.com/jquery-latest.js"></script>  -->
+    <script>
+	$(document).ready(function() {
+        // fill in default description on page load
+        //$('.description').html($('#default-description').attr('data-description'));
+
+        // change description when a link is clicked
+        $('.description-link').click(function() {
+		//alert("ok");
+		var abctext=$(this).attr('data-description');
+		var array=abctext.split(",");
+		var index= parseInt(array[0]);
+		alert(index);
+		//alert(abctext);
+        //$('#pName').html($(this).attr('data-description'));
+		document.getElementsByClassName("pcName")[index].innerHTML=array[1];
+		document.getElementsByClassName("pcDesc")[index].innerHTML=array[2];
+		document.getElementsByClassName("pcPrice")[index].innerHTML=array[3];
+		document.getElementsByClassName("pcimg")[index].src=array[4];
+		
+        });
+    });
+        function changeDivStyle() {
+            var selectedDiv = "";
+            var imgUrl = "";
+            var textData = "";
+            var pName = "";
+            var pDesc = "";
+            var pPrice = "";
+            var x = document.getElementsByClassName('optionsecoptions');
+            console.log("X length is:::" + x.length);
+            for (var i = 0; i < x.length; i++) {
+                x[i].addEventListener("click", function () {
+                    var selectedEl = document.querySelector(".selected");
+                    if (selectedEl) {
+                       selectedEl.classList.remove("selected");
+                    }
+                    this.classList.add("selected");
+                }, false);;
+           
+
+                x[i].addEventListener('click', function () {
+                    var selectedEl = document.querySelector(".selected");
+                    imgUrl = document.getElementById("imgID").src;
+                    console.log("Image URL is:: " + imgUrl);
+                    pName = document.querySelector('.pName').textContent;
+                    pDesc = document.querySelector('.pDesc').textContent;
+                    pPrice = document.querySelector('.pPrice').textContent;
+                    // console.log("pName::: "+pName);
+                    if (selectedEl){
+                        //alert(selectedEl.innerText);
+                        console.log("Data is:: "+selectedEl.innerText);
+                        textData = selectedEl.innerText;
+                        console.log("textData is:: "+textData);
+                    }
+                     else{
+                        alert('please choose an option');
+                     }      
+                     changeImg(imgUrl, pName, pDesc, pPrice)               
+                })
+                
+            } 
+            
+            
+        }
+
+        function  changeImg(imgUrl, pName, pDesc, pPrice) {
+            console.log("===Inside the changeImg(imgUrl)++====");
+            document.getElementById("imgID2").src=imgUrl;
+            // console.log("inside the changeImg()-- textData is:: "+textData);
+            // console.log("inside the changeImg()-- textData length is:: "+textData.length);
+            // document.getElementById("pID").innerHTML = textData;
+            document.getElementById("pName").innerHTML = pName;
+            document.getElementById("pDesc").innerHTML = pDesc;
+            document.getElementById("pPrice").innerHTML = pPrice;
+        }
+    </script>
+</body>
+
+</html>
