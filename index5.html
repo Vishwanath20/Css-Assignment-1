@@ -25,6 +25,14 @@
         </script>
     
         <style>
+
+           
+            body{
+               
+                font-family: AkzidenzGrotesk;
+                font-size: 2em;
+
+            }
     
             .slStyle{
                 background-color: black;
@@ -45,7 +53,8 @@
     
     
             #rowId {
-                border: 1px solid black;
+             
+                border-top: 2PX solid black;
                 padding: 20px;
             }
     
@@ -56,6 +65,8 @@
             .row {
                 margin-right: 0px;
                 margin-left: 0px;
+                font-family: Optima LT W02 Roman; 
+
             }
     
             .pClass {
@@ -87,20 +98,47 @@
                     height: 340px !important;
                 }
             }
+
+            .menu-class{
+                color: black;
+            }
+
+            .menu-class-option{
+                padding-left: 20px;
+                color: black;
+            }
         </style>
     </head>
     
 
 <body>
-    <div class="container" style="margin-top: 20px;">
+
+    
+
+    <!--##########################################################################################################-->
+    <div class="container" >
+
+        <div class="row" style="background:white;padding: 10px;" contextmenu="mymenu">
+            <h4> ESTEE LAUDER</H4>
+           
+            <!-- <menu type="context" id="mymenu">
+              <menuitem label="Refresh" onclick="window.location.reload();" icon="ico_reload.png"></menuitem>
+              <menu label="Share on...">
+                <menuitem label="Twitter" icon="ico_twitter.png" onclick="window.open('//twitter.com/intent/tweet?text=' + window.location.href);"></menuitem>
+                <menuitem label="Facebook" icon="ico_facebook.png" onclick="window.open('//facebook.com/sharer/sharer.php?u=' + window.location.href);"></menuitem>
+              </menu>
+              <menuitem label="Email This Page" onclick="window.location='mailto:?body='+window.location.href;"></menuitem> -->
+            </menu>
+            
+            </div>
         <!--#####################################################################################################-->
         <div class="row">
             <div class="row pListClass pListClass_0" id="rowId">
-                <div class=" col-md-1"> <span class="slNum_1"> 1 </span> </div>
-                <div class="col-md-10">
+                <div class=" col-md-1 col-sm-1 col-xs-1"> <span class="slNum_1"> 1 </span> </div>
+                <div class="col-md-9 col-sm-9 col-xs-9">
                     Nutritious Super-Pomegranate
                 </div>
-                <div class="col-md-1">
+                <div class="col-md-2 col-sm-2 sol-xs-2" style="text-align: right;">
                     <div id="clasp_1">
                         <a href="javascript:lunchboxOpen('1');">Select +</a>
                     </div>
@@ -261,11 +299,11 @@
         <!--#######################################################################################################-->
         <div class="row">
             <div class="row pListClass pListClass_1" id="rowId">
-                <div class=" col-md-1"> <span class="slNum_2"> 2 </span> </div>
-                <div class="col-md-10">
+                <div class=" col-md-1 col-sm-1 col-xs-1"> <span class="slNum_2"> 2 </span> </div>
+                <div class="col-md-9 col-sm-9 col-xs-9">
                    Pick a serum
                 </div>
-                <div class="col-md-1">
+                <div class="col-md-2 col-sm-2 sol-xs-2" style="text-align: right;">
                     <div id="clasp_2">
                         <a href="javascript:lunchboxOpen('2');">Select +</a>
                     </div>
@@ -436,11 +474,11 @@
         <!--#######################################################################################################-->
         <div class="row">
             <div class="row pListClass pListClass_2" id="rowId">
-                <div class=" col-md-1"> <span class="slNum_3"> 3 </span> </div>
-                <div class="col-md-10">
+                <div class=" col-md-1 col-sm-1 col-xs-1"> <span class="slNum_3"> 3 </span> </div>
+                <div class="col-md-9 col-sm-9 col-xs-9">
                     Pick a Moisturizers
                 </div>
-                <div class="col-md-1">
+                <div class="col-md-2 col-sm-2 sol-xs-2" style="text-align: right;">
                     <div id="clasp_3">
                         <a href="javascript:lunchboxOpen('3');">Select +</a>
                     </div>
@@ -599,11 +637,11 @@
 
         <div class="row">
             <div class="row pListClass pListClass_3" id="rowId">
-                <div class=" col-md-1"> <span class="slNum_4"> 4 </span> </div>
-                <div class="col-md-10">
+                <div class=" col-md-1 col-sm-1 col-xs-1"> <span class="slNum_4"> 4 </span> </div>
+                <div class="col-md-9 col-sm-9 col-xs-9">
                     Pick a Eye Cream
                 </div>
-                <div class="col-md-1">
+                <div class="col-md-2 col-sm-2 sol-xs-2" style="text-align: right;">
                     <div id="clasp_4">
                         <a href="javascript:lunchboxOpen('4');">Select +</a>
                     </div>
@@ -784,25 +822,25 @@
       
         <!--Start -  Last Div for product count and total-->
 
-        <div class="row">
-            <div class="col-md-3">
+        <div class="row " id="rowId">
+            <div class="col-md-3 col-sm-3 col-xs-3">
                 <span id="itemCount"> 0 </span> of 4
             </div>
-            <div class="col-md-7"> 
+            <div class="col-md-7 col-sm-7 col-xs-7"> 
                
             </div>
-            <div class="col-md-2"> 
-                Total:- <span id = "sumprice">0</span>
+            <div class="col-md-2 col-sm-2 col-sm-2" style=" text-align: right;"> 
+                Total:- $<span id = "sumprice">0</span>
             </div>
         </div>
         <!--End -  Last Div for product count and total-->
 
         <!-- Start add to card div-->
-        <div>
-            <div class="col-md-9">
+        <div class="row" style="padding-top: 20px; text-align: right;">
+            <div class="col-md-9 col-sm-9 col-xs-9 ">
                 
             </div>
-            <div class="col-md-3"> 
+            <div class="col-md-3 col-sm-3 col-xs-3"> 
                <button id="cartButton" disabled> ADD TO BAG </button>
             </div>
         </div>
