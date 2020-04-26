@@ -92,7 +92,7 @@
     
 
 <body>
-    <div class="container">
+    <div class="container" style="margin-top: 20px;">
         <!--#####################################################################################################-->
         <div class="row">
             <div class="row pListClass pListClass_0" id="rowId">
@@ -817,15 +817,13 @@
     $(document).ready(function () {
 
         $('.description-link').click(function () {
-
-
             //alert("ok");
             var abctext = $(this).attr('data-description');
             var array = abctext.split(",");
             var r = parseInt(array[0]);
             var c = parseInt(array[1]);
-            console.log("r:: "+r);
-            console.log("c:: "+c);
+            // console.log("r:: "+r);
+            // console.log("c:: "+c);
             //$('#pName').html($(this).attr('data-description'));
 
             $(".pListClass_" + r).css("display", "none");
@@ -871,8 +869,12 @@
     //--------------------------------------------------------------------------------------
 
 
+        // function isEmpty(val){
+        //  return (val === undefined || val === null || val.length <= 2 ) ? true : false;
+        // }
+
         function isEmpty(val){
-         return (val === undefined || val === null || val.length <= 2 ) ? true : false;
+         return (val === undefined || val === null || val.length <= 2) ? true : false;
         }
 
     function getCount()
@@ -881,17 +883,18 @@
             var price;
             var sumprice=0;
             var countvalues=0;
+
             for	( var i =0;i<numItems;i++)
             {
             price=document.getElementsByClassName("pPrice")[i].innerHTML;
-//console.log("price is::"+price);               
+//console.log("price is::"+price);  ;;;;             
            
             if (isEmpty(price)==false)
             {
                 
                 sumprice = (parseFloat(sumprice)+parseFloat(price.replace("$", "")));
                 countvalues=(parseInt(i)+1);
-               // console.log("sumprice is::"+sumprice);
+               console.log("sumprice is::"+sumprice);
                 //  countvalues=(parseInt(i));
                 console.log("countvalues is::"+countvalues);
             }  
